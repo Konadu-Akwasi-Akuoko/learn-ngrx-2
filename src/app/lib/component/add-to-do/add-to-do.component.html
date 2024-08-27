@@ -1,0 +1,38 @@
+<div class="w-full flex flex-col gap-y-3">
+  <div class="w-full flex flex-col gap-2 justify-between">
+    <label for="input-todo-title" class="font-medium text-xl text-white"
+      >Title</label
+    >
+    <input
+      type="text"
+      name="input-todo-title"
+      title="input-todo"
+      placeholder="Enter a todo item title here"
+      hlmInput
+      [class]="'w-full bg-white'"
+      (input)="handleTitleChange($event)"
+    />
+  </div>
+  <div class="w-full flex flex-col gap-2 justify-between">
+    <label for="input-todo-description" class="font-medium text-xl text-black"
+      >Description</label
+    >
+    <input
+      type="text"
+      name="input-todo-description"
+      title="input-todo-description"
+      placeholder="Enter a todo item description here"
+      hlmInput
+      [class]="'w-full bg-white'"
+      (input)="handleDescriptionChange($event)"
+    />
+    <button
+      type="button"
+      hlmBtn
+      [class]="'h-12 bg-green-600 hover:bg-green-700 mt-2'"
+      (click)="handleAddToDo()"
+    >
+      Add ToDo
+    </button>
+  </div>
+</div>

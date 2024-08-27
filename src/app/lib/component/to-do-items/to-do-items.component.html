@@ -1,0 +1,48 @@
+<div class="flex flex-col gap-6 w-full">
+  @for (item of todoItems; track $index) {
+    <div class="flex flex-col w-full rounded-md overflow-hidden bg-slate-50">
+      <div class="w-full p-2 bg-orange-100">
+        <h1
+          class="font-medium text-lg"
+          [ngStyle]="
+            item.complete ? { 'text-decoration': 'line-through' } : null
+          "
+        >
+          {{ item.title }}
+        </h1>
+      </div>
+      <div class="w-full p-2">
+        <p
+          class=""
+          [ngStyle]="
+            item.complete ? { 'text-decoration': 'line-through' } : null
+          "
+        >
+          {{ item.description }}
+        </p>
+      </div>
+      <div class="w-full flex flex-row flex-wrap gap-4 mb-1 p-2">
+        <button
+          type="button"
+          hlmBtn
+          [size]="'sm'"
+          [variant]="'default'"
+          [class]="'h-7'"
+          (click)="handleMarking(item.id)"
+        >
+          {{ item.complete ? "Mark as Not Done" : "Mark as Done" }}
+        </button>
+        <button
+          type="button"
+          hlmBtn
+          [size]="'sm'"
+          [variant]="'destructive'"
+          [class]="'h-7 bg-red-400 hover:bg-red-500'"
+          (click)="handleDelete(item.id)"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  }
+</div>

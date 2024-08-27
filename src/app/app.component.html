@@ -1,0 +1,29 @@
+<div>
+  <div class="relative w-full md:h-[30vh] h-[45vh]">
+    <img
+      src="top-image.jpg"
+      alt="image"
+      loading="lazy"
+      height="859"
+      width="2600"
+      class="w-full h-full object-cover absolute top-0 left-0 -z-20"
+    />
+    <div class="w-full h-full absolute top-0 -z-10 bg-black opacity-40"></div>
+
+    <div class="md:px-[30%] px-[10%] sm:px-[20%] py-16">
+      <h1 class="text-white text-5xl font-semibold">Tasky ✨</h1>
+    </div>
+  </div>
+
+  <!-- ! -->
+
+  <div class="md:px-[30%] px-[10%] sm:px-[20%] z-50">
+    <div
+      class="flex flex-col gap-y-12 items-center justify-center w-full -top-16 relative"
+    >
+      <app-add-to-do class="w-full" />
+
+      <app-to-do-items class="w-full" />
+    </div>
+  </div>
+</div>
