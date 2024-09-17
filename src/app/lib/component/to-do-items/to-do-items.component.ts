@@ -4,6 +4,8 @@ import { ToDoItem } from '../../classes/ToDoItem';
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
+import { Store } from '@ngrx/store';
+import { deleteToDo, markToDo } from '../../store/todo/todo.actions';
 
 @Component({
   selector: 'app-to-do-items',
@@ -12,7 +14,10 @@ import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
   templateUrl: './to-do-items.component.html',
 })
 export class ToDoItemsComponent implements OnInit, OnDestroy {
-  constructor(private todoItemService: ToDoItemsService) {}
+  constructor(
+    private todoItemService: ToDoItemsService,
+    private store: Store,
+  ) {}
 
   todoItems: ToDoItem[] = [];
   private todoItemsSub!: Subscription;
@@ -32,9 +37,11 @@ export class ToDoItemsComponent implements OnInit, OnDestroy {
 
   handleMarking(id: number) {
     this.todoItemService.markingItem({ id });
+    this.store.dispatch(markToDo({ id }));
   }
 
   handleDelete(id: number) {
     this.todoItemService.removeItem({ id });
+    this.store.dispatch(deleteToDo({ id }));
   }
 }
